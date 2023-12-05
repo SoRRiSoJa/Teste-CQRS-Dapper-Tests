@@ -1,0 +1,37 @@
+
+git init
+ inicializa um novo repositório Git no diretório atual.
+
+nano README.md
+
+nano default.html
+
+git add .
+Adiciona todos os arquivos modificados no diretório atual e em seus subdiretórios
+git commit -m "Commit 1"
+ cria um novo commit com todas as alterações que foram adicionadas (-m) para adicionar mensagem.
+git rm default.html
+remove o arquivo do repositório Git e do diretório de trabalho
+nano style.css
+
+git add style.css
+
+adiciona o arquivo style.css 
+
+git commit -m "Commit 2"
+cria um novo commit com todas as alterações 
+git checkout -b testing
+cria um novo branch chamado testing e muda para esse branch
+nano script.js
+
+git add *.js
+adiciona todos os arquivos JavaScript no diretório atual e em seus subdiretórios
+git commit -m "Commit 3"
+cria um novo commit para a nova branch
+git checkout master
+muda para o branch master
+
+Ao final desta sequencia de comandos, os arquivos que se encontram em seu diretório de trabalho, alem do README.md é/são?
+
+ os arquivos que se encontram em seu diretório de trabalho, além do README.md, são script.js e style.css. O arquivo default.html foi removido do repositório e do diretório de trabalho no passo 5
+ Os comandos nano são para edição de texto no edito Nano, não foram descritos.
