@@ -35,14 +35,9 @@ public class MovimentoCreateCommandHandler : IRequestHandler<CreateMovimentacaoR
         if (result is null)
         {
             await _idempotenciaRepository.CreateIndepotencia(idempotencia);
-            movimento = await _movimentoRepository.CreateMovimento(movimento);
+            return await _movimentoRepository.CreateMovimento(movimento);
         }
-        else
-        {
-            movimento = JsonSerializer.Deserialize<Movimento>(idempotencia.Resultado);
-        }
-
-        return movimento;
+        return JsonSerializer.Deserialize<Movimento>(idempotencia.Resultado);
     }
 
     private Idempotencia BuildIdempotencia(CreateMovimentacaoRequestCommand request, Movimento? movimento)
@@ -52,7 +47,7 @@ public class MovimentoCreateCommandHandler : IRequestHandler<CreateMovimentacaoR
         return new Idempotencia(request.RequisicaoId, jsonRequest, jsonResultado);
     }
 
-    private static void ValidateRequest(CreateMovimentacaoRequestCommand request)
+    private void ValidateRequest(CreateMovimentacaoRequestCommand request)
     {
 
         if (string.IsNullOrWhiteSpace(request.RequisicaoId))
